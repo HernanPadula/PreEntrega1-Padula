@@ -1,5 +1,4 @@
- export function itemListContainer () {
-    const Greeting = "Bienvenido";
+    export function ItemListContainer ({Greeting}) {
 
     return (
         <div>{Greeting}</div>
