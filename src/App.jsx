@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <NavBar/>
-      <ItemListContainer Greeting="Bienvenido a mi pagina"/>
+      <ItemListContainer Greeting="Bienvenido a mi pagina, presiona el boton <PRODUCTOS> para ver la lista de productos"/>
     </>
   )
-}
+};
 
 export default App

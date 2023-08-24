@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavBar } from "../components/NavBar";
 import { Link } from "react-router-dom";
+import './Productos.css';
 
 function Productos (){
     const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +29,8 @@ function Productos (){
     <NavBar/>
     <div>Productos
         {Productos.map((producto) => (
-        <article key={producto.id}>
+        <article key={producto.id} className="listaProds">
+            <img src={producto.image} alt="imagen" />
             <Link key={producto.id} to={`/producto/${producto.id}`}>
                 <h5>{producto.title}</h5>
                 </Link>

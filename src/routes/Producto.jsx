@@ -1,3 +1,4 @@
+import './Producto.css';
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import { NavBar } from "../components/NavBar";
@@ -28,12 +29,15 @@ function Producto () {
     return (
         <div>
             <NavBar></NavBar>
-            <h2>Producto</h2>
-        <article>
-            <h3>{Producto.title}</h3>
-            <h3>{Producto.category}</h3>
-            <h4>{Producto.description}</h4>
+        {Producto.map((producto) => (
+        <article className="detalleProducto" key={producto.id}>
+            <h2>{producto.title}</h2>
+            <img src={producto.image} alt="imagen" />
+            <h3>{producto.category}</h3>
+            <h4>{producto.description}</h4>
+            <h4>$ {producto.price}</h4>
         </article>
+        ))}
         </div>
     );
 };
