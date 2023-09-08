@@ -10,7 +10,7 @@ export function NavBar () {
         <Link to="/productos"><button>Productos</button></Link>
         <Link to="/categorias"><button>Categorias</button></Link>
         <Link to="/carrito"><img src={logo} alt="Logo carrito" className="logoCarrito"/>
-        <CartWidget items={12}/>
+        <CartWidget/>
         </Link>
     </nav>
 };

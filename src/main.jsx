@@ -10,11 +10,14 @@ import Jewelery from "./routes/Jewelery.jsx";
 import Electronics from "./routes/Electronics.jsx";
 import WomensClothing from "./routes/WomensClothing.jsx";
 import Producto from "./routes/Producto.jsx";
-import Productos from './routes/Productos.jsx'
+import Productos from "./routes/Productos.jsx";
+import CartProvider from './context/CartContext.jsx';
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <CartProvider>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}/>
@@ -27,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/categoria/electronica" element={<Electronics/>}/>
       <Route path="/categoria/ropaDeMujeres" element={<WomensClothing/>}/>
     </Routes>
-    </BrowserRouter>  ..
+    </BrowserRouter>
+    </CartProvider>
   </React.StrictMode>,
 )
