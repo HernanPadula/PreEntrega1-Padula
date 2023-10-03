@@ -1,17 +1,24 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavBar } from "../components/NavBar";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc,} from "firebase/firestore";
 import { firestore } from "../fireBase/firebase";
+
+const refOrdenes = collection(firestore, "ordenes");
+
+const docRef = doc(firestore, "ordenes", "UuWaO0OKTt8QnJ7ojs1A");
 
 function Cart (){
     const {cartList} = useContext(CartContext);
 
+    const {orderId,setOrderId} = useState(null);
+
     const handelClickCompra = () => {
-        const refOrdenes = collection(firestore, "ordenes")
-        const itemsList = {cartList}
-        addDoc(refOrdenes,itemsList).then((newDocRef)=>{console.log(newDocRef)});
+        const itemsList = {
+            items: cartList.map(item => ({id: item.id, price: item.price,title: item.title}))
+        };
+        addDoc(refOrdenes,itemsList).then((item)=>{setOrderId(item.id)});
     };
 
     console.log({cartList});
